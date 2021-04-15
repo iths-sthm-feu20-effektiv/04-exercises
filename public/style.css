@@ -1,0 +1,14 @@
+p {
+	background-color: beige;
+}
+
+button {
+	background-color: #EDDEDC;
+	border: none;
+	margin: 0.5em;
+	border-radius: 0.3em;
+}
+button:hover {
+	background-color: #D7B9B5;
+	cursor: pointer;
+}
