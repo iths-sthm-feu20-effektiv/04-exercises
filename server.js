@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 
 app.use( express.json() )
 app.use( cors() )
-// app.use( express.static(staticFolder) )
+app.use( express.static(staticFolder) )
 
 
 
@@ -24,15 +24,16 @@ app.use( cors() )
 app.get('/', (req, res) => {
 	res.send('Welcome to the exercies project')
 })
-app.get('/index.html', (req, res) => {
-	res.sendFile(path.join(__dirname, 'public/index.html'))
-})
-app.get('/style.css', (req, res) => {
-	res.sendFile(path.join(__dirname, 'public/style.css'))
-})
-app.get('/script.js', (req, res) => {
-	res.sendFile(path.join(__dirname, 'public/script.js'))
-})
+// En route för varje fil - fungerar, men opraktiskt!
+// app.get('/index.html', (req, res) => {
+// 	res.sendFile(path.join(__dirname, 'public/index.html'))
+// })
+// app.get('/style.css', (req, res) => {
+// 	res.sendFile(path.join(__dirname, 'public/style.css'))
+// })
+// app.get('/script.js', (req, res) => {
+// 	res.sendFile(path.join(__dirname, 'public/script.js'))
+// })
 
 
 
