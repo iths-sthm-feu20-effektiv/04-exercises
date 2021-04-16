@@ -1,29 +1,30 @@
+// importera npm-paket
+// konfigurera
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const path = require('path')
+const PORT = 1340
 
-const PORT = 1338
-const staticFolder = path.join(__dirname, 'public')
-
-
-// Middleware
-app.use( express.json() )
+// installera middleware
 app.use( cors() )
-app.use( express.static(staticFolder) )
-
+app.use( express.json() )
+// static
 app.use((req, res, next) => {
-	console.log(`${req.method}  ${req.url} `, req.params);
+	console.log(`${req.method}  ${req.url} `, req.params)
 	next()
 })
 
 
-// Routes
+// routes
 app.get('/', (req, res) => {
-	res.send('Welcome to the exercies project')
+	res.send('Welcome to exercise 4 server.')
+})
+app.get('/index.html', (req, res) => {
+	res.sendFile('public/index.html')
 })
 
 
+// starta webbservern
 app.listen(PORT, () => {
-	console.log('Server listening on port ' + PORT);
+	console.log(`Server is listening on port ${PORT}.`);
 })
