@@ -24,6 +24,17 @@ app.use( express.static(staticFolder) )
 app.get('/', (req, res) => {
 	res.send('Welcome to the exercies project')
 })
+
+app.get('/simulate-error', (req, res) => {
+	let x
+	try {
+		x.name = 'Hanna'
+		res.send(x.name)
+	} catch(error) {
+		console.log('Ett fel inträffade!' + error.message);
+		res.status(500).send(error.message)
+	}
+})
 // En route för varje fil - fungerar, men opraktiskt!
 // app.get('/index.html', (req, res) => {
 // 	res.sendFile(path.join(__dirname, 'public/index.html'))
