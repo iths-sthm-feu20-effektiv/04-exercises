@@ -3,7 +3,7 @@ const app = express()
 const cors = require('cors')
 const path = require('path')
 
-const PORT = 1338
+const PORT = process.env.PORT || 1338
 const staticFolder = path.join(__dirname, 'public')
 
 
